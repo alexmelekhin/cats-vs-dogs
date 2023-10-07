@@ -514,8 +514,7 @@ files = [
 [package.dependencies]
 numpy = [
     {version = ">=1.20.3", markers = "python_version < \"3.10\""},
-    {version = ">=1.23.2", markers = "python_version >= \"3.11\""},
-    {version = ">=1.21.0", markers = "python_version >= \"3.10\" and python_version < \"3.11\""},
+    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
 ]
 python-dateutil = ">=2.8.1"
 pytz = ">=2020.1"
@@ -961,5 +960,5 @@ test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.8.1,<3.13"
-content-hash = "65305ee6c8e0c7db8f3acf06ef530d4f5416430bb17c83561732e130d34d2d4a"
+python-versions = ">=3.8.1,<3.11"
+content-hash = "626aa2f9db4d97b84a7e4e95856f0a6e846ab22276cd8782f6d6b7e203e885a7"
