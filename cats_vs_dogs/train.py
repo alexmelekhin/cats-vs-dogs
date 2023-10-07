@@ -1,7 +1,6 @@
 import torch
 from torch import nn, optim
 from torch.utils.data import DataLoader
-from torchvision import transforms
 from torchvision.datasets import ImageFolder
 from tqdm import tqdm
 
@@ -21,6 +20,7 @@ from cats_vs_dogs.config import (
 )
 from cats_vs_dogs.data_utils import load_and_unzip
 from cats_vs_dogs.models import load_resnet18
+from cats_vs_dogs.transforms import default_image_transforms
 
 
 def main() -> None:
@@ -35,13 +35,7 @@ def main() -> None:
 
     model = load_resnet18(num_classes=2)
 
-    image_transforms = transforms.Compose(
-        [
-            transforms.Resize((IMAGE_SIZE_H, IMAGE_SIZE_W)),
-            transforms.ToTensor(),
-            transforms.Normalize(IMAGE_MEAN, IMAGE_STD),
-        ]
-    )
+    image_transforms = default_image_transforms((IMAGE_SIZE_H, IMAGE_SIZE_W), IMAGE_MEAN, IMAGE_STD)
 
     train_dataset = ImageFolder(DATA_DIR / "train_11k", transform=image_transforms)
     val_dataset = ImageFolder(DATA_DIR / "val", transform=image_transforms)
