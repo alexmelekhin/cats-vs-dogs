@@ -5,6 +5,7 @@ import torch
 DATA_URL = "https://www.dropbox.com/s/gqdo90vhli893e0/data.zip"
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 CHECKPOINT_DIR = Path(__file__).resolve().parent.parent / "checkpoints"
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "results"
 
 IMAGE_SIZE_H = 224
 IMAGE_SIZE_W = 224
