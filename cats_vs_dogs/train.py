@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import torch
 from torch import nn, optim
 from torch.utils.data import DataLoader
@@ -7,24 +5,22 @@ from torchvision import transforms
 from torchvision.datasets import ImageFolder
 from tqdm import tqdm
 
+from cats_vs_dogs.config import (
+    BATCH_SIZE,
+    CHECKPOINT_DIR,
+    DATA_DIR,
+    DATA_URL,
+    DEVICE,
+    EPOCH_NUM,
+    IMAGE_MEAN,
+    IMAGE_SIZE_H,
+    IMAGE_SIZE_W,
+    IMAGE_STD,
+    LR,
+    NUM_WORKERS,
+)
 from cats_vs_dogs.data_utils import load_and_unzip
 from cats_vs_dogs.models import load_resnet18
-
-DATA_URL = "https://www.dropbox.com/s/gqdo90vhli893e0/data.zip"
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-CHECKPOINT_DIR = Path(__file__).resolve().parent.parent / "checkpoints"
-
-IMAGE_SIZE_H = 224
-IMAGE_SIZE_W = 224
-IMAGE_MEAN = [0.485, 0.456, 0.406]
-IMAGE_STD = [0.229, 0.224, 0.225]
-
-BATCH_SIZE = 128
-EPOCH_NUM = 5
-LR = 3e-4
-
-NUM_WORKERS = 4
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 def main() -> None:
